@@ -1,0 +1,58 @@
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <h2 mat-dialog-title>Open a file</h2>
+  <span mat-dialog-close style="cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+    width="20" height="20"
+    viewBox="0 0 24 24"
+    style=" fill:#000000;"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"></path></svg></span>
+</div>
+
+<mat-dialog-content>
+  <mat-tab-group animationDuration="0ms">
+    <!--First Tab-->
+    <mat-tab label="Upload">
+      
+      <div class="file-container">
+        <input type="file" class="file" (change)="getFile($event)">
+        <div class="file-section">
+          <h2 class="drag-file">Drag a file here</h2>
+          <p class="drag-text">Or if you prefer...</p>
+          <button class="select-file-btn">Select a file from your device</button>
+        </div>
+      </div>
+    </mat-tab>
+     <!--Second Tab-->
+    <mat-tab label="Community files">
+      <div fxLayout="row" >
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" >
+          <mat-form-field appearance="outline" class="search-input">
+            <input matInput placeholder="Start typing...">
+          </mat-form-field>
+          </div>
+      </div>
+      <mat-divider></mat-divider>
+      <h5>Highlighted files</h5>
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3]">
+          <mat-card class="mat-elevation-z4 highlight-card">
+            <mat-card-header>
+              <mat-card-title></mat-card-title>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+      <h5>Files</h5>
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7]">
+          <mat-card class="mat-elevation-z4 file-card">
+            <mat-card-title></mat-card-title>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</mat-dialog-content>
+<mat-dialog-actions align="start">
+  <button mat-raised-button color="primary">Open</button>
+  <button mat-stroked-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
